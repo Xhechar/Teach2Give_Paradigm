@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": "1716992512112",
+      "image": "https://th.bing.com/th?id=OIP.1oBaNVlN-jhf5jxARk8acgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+      "name": "Laptop Fold",
+      "description": "Toshiba Tecra 950",
+      "price": "Ksh: 35,000"
+    },
+    {
+      "id": "1716992611440",
+      "name": "Car",
+      "description": "Audi Tx",
+      "price": "Ksh: 1,520,000",
+      "image": "https://th.bing.com/th?id=OIP.6Nqp6mQS1h9sbMqERdDfBQHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+    },
+    {
+      "id": "1716992735983",
+      "image": "https://th.bing.com/th?id=OIP.I2ZhbGfJEUMaOOxMDYiV7QHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+      "name": "Ear Pods",
+      "description": "Samsung G1",
+      "price": "Ksh: 3,000"
+    },
+    {
+      "id": "1716993276078",
+      "name": "Shoes",
+      "description": "Reeboks Shooes!",
+      "price": "Ksh: 2,200",
+      "image": "https://th.bing.com/th?id=OIP.uhlH_kKHKAv1YWCelc4icgHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+    },
+    {
+      "id": "1716997150631",
+      "name": "Food",
+      "description": "Bread Butter Meaty",
+      "price": "Ksh: 4,500",
+      "image": "https://th.bing.com/th?id=OIP.znojzYdEglZamJTW511HagHaLu&w=198&h=314&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+    }
+  ]
+}

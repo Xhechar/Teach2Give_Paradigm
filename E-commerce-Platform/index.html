@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      sizes="32X32"
+      type="image/png"
+      rel="icon"
+      href="icons/ecommerce-iconn.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Exhechar E-Commerce Platform | Felix Okoth</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="icon-and-title">
+          <img src="icons/e-cart.png" alt="e-commerse-picture" />
+          <h1>e - Commerce Trading Platform.</h1>
+        </div>
+        <div class="welcome-container">
+          <h1>Welcome Admin ...</h1>
+        </div>
+      </header>
+      <div class="body-contents">
+        <section class="main-buttons-container">
+          <div class="search-bar-and-button">
+            <input
+              type="text"
+              class="search-box"
+              placeholder="Search for item"
+            />
+            <button class="search">Search Item</button>
+          </div>
+          <div class="create-buttons">
+            <button class="view">View All Products</button>
+            <button class="create">Create Product</button>
+          </div>
+        </section>
+        <section class="custom-div">
+          <div class="custom-div-contents">
+            <form>
+              <div class="form-input-label-containel">
+                <label>Name of Commodity:</label>
+                <input type="text" class="name-of-commodity" />
+              </div>
+              <div class="form-input-label-containel">
+                <label>Description:</label>
+                <input
+                  style="border: none"
+                  type="text"
+                  class="description-of-commodity"
+                />
+              </div>
+
+              <div class="form-input-label-containel">
+                <label>Price:</label>
+                <input type="text" class="price-of-commodity" />
+              </div>
+
+              <div class="form-input-label-containel">
+                <label>Commodity Image Link:</label>
+                <input
+                  type="text"
+                  accept="image/*"
+                  class="image-of-commodity"
+                />
+              </div>
+              <div class="form-input-label-containel1">
+                <button class="cancel">Cancel Form</button>
+                <button class="save">Save Product</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+      <section class="displaying-div"></section>
+      <section class="custom-div1"></section>
+    </main>
+
+    <script type="module" src="equivalents/main.js"></script>
+    <script src="equivalents/connector.js"></script>
+  </body>
+</html>

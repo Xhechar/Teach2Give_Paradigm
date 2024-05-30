@@ -1,0 +1,877 @@
+/* @media screen and (max-width: 1100px) and (min-width:630px) {
+  .displaying-div {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input::placeholder {
+  color: rgb(65, 63, 63);
+}
+
+button {
+  background-color: hsl(245, 92%, 40%);
+  border: none;
+  color: whitesmoke;
+  padding: 2.6% 5%;
+  border-radius: 10px;
+  transition: all 0.15s;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+button:active {
+  opacity: 1;
+}
+
+main {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(24, 8, 196, 0.5);
+}
+
+.icon-and-title {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 8%;
+}
+
+.icon-and-title h1 {
+  width: 55%;
+  font-weight: 700;
+  font-size: 40px;
+  color: hsl(245, 92%, 40%);
+}
+
+.icon-and-title img {
+  height: 70%;
+}
+
+.welcome-container {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  font-weight: 800;
+  font-size: 10px;
+  color: rgb(85, 85, 85);
+}
+
+.body-contents {
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-buttons-container {
+  width: 80%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar-and-button {
+  position: relative;
+  height: 80%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  height: 50%;
+}
+
+.search-bar-and-button input {
+  width: 100%;
+  height: 50%;
+  border: 2px solid rgb(216, 216, 216);
+  border-radius: 10px;
+  padding-left: 1.5%;
+}
+
+.search-bar-and-button button {
+  position: absolute;
+  right: 2px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.search-box::placeholder {
+  color: red;
+}
+
+.create-buttons {
+  width: 46%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.custom-div {
+  background-color: rgb(216, 216, 216);
+  width: 70%;
+  height: auto;
+  margin-top: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+}
+
+.custom-div-contents {
+  display: none;
+  width: 95%;
+  height: 100%;
+}
+
+.custom-div1 {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: -20vw;
+  top: 30vh;
+  background-color: rgb(216, 216, 216);
+  width: 40%;
+  height: auto;
+  margin: 50% 50%;
+  margin-top: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+}
+
+.popup {
+  width: 95%;
+  height: 100%;
+}
+
+.form-input-label-containel {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 1vh;
+}
+
+.form-input-label-containel1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 10px;
+}
+
+.form-input-label-containel1 button {
+  padding: 2% 5%;
+}
+
+form label {
+  padding: 0;
+  margin: 0;
+}
+
+form input {
+  width: 70%;
+  border-radius: 10px;
+  border: 2px solid rgb(216, 216, 216);
+  padding-left: 1.5%;
+}
+
+form input::placeholder {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+}
+
+.displaying-div {
+  border-top: 3px solid rgb(216, 216, 216);
+  width: 100%;
+  margin-top: 5vh;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-tile {
+  width: 30vw;
+  height: 360px;
+  box-shadow: 2px 2px 2px rgba(24, 8, 196, 0.5);
+  margin: 1vw;
+  display: grid;
+  grid-template-rows: 60% 1fr 1fr;
+  row-gap: 5px;
+  border-radius: 10px;
+}
+
+.product-tile img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.button-holder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.button-holder button {
+  padding: 3% 10%;
+}
+
+.body-holder {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+@media screen and (max-width: 420px) {
+  .displaying-div {
+    border-top: 3px solid rgb(216, 216, 216);
+    width: 100%;
+    margin-top: 5vh;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .product-tile {
+    width: 80vw;
+    height: 360px;
+    box-shadow: 2px 2px 2px rgba(24, 8, 196, 0.5);
+    margin: 2vw;
+    display: grid;
+    grid-template-rows: 60% 1fr 1fr;
+    row-gap: 5px;
+    border-radius: 10px;
+  }
+  .icon-and-title h1 {
+    width: 80%;
+    font-weight: 700;
+    font-size: 40px;
+    color: hsl(245, 92%, 40%);
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 18vh;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    align-items: start;
+    border-bottom: 1px solid rgba(24, 8, 196, 0.5);
+  }
+  .icon-and-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 8%;
+  }
+
+  .icon-and-title h1 {
+    width: 100%;
+    font-weight: 700;
+    font-size: 25px;
+    color: hsl(245, 92%, 40%);
+  }
+
+  .icon-and-title img {
+    height: 60%;
+  }
+
+  .welcome-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 10px;
+    color: rgb(85, 85, 85);
+  }
+
+  .body-contents {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-buttons-container {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-bar-and-button {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .search {
+    height: 60%;
+  }
+
+  .search-bar-and-button input {
+    width: 100%;
+    height: 60%;
+    border: 2px solid rgb(216, 216, 216);
+    border-radius: 10px;
+    padding-left: 1.5%;
+  }
+
+  .search-bar-and-button button {
+    position: absolute;
+    right: 2px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .create-buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .custom-div {
+    background-color: rgb(216, 216, 216);
+    width: 98%;
+    height: auto;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+  }
+
+  .custom-div-contents {
+    display: none;
+    width: 90%;
+    height: 100%;
+  }
+
+  .custom-div1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: -37vw;
+    top: 30vh;
+    background-color: rgb(216, 216, 216);
+    width: 80%;
+    height: auto;
+    margin: 50% 50%;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+  }
+
+  .popup {
+    width: 95%;
+    height: 100%;
+  }
+
+  form {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .form-input-label-containel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+  }
+
+  .form-input-label-containel1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 5px;
+  }
+
+  .form-input-label-containel1 button {
+    padding: 2% 5%;
+  }
+
+  form label {
+    padding: 0;
+    margin: 0;
+  }
+
+  form input {
+    width: 90%;
+    height: 60%;
+    border-radius: 10px;
+    border: 2px solid rgb(216, 216, 216);
+    padding-left: 1.5%;
+  }
+
+  form input::placeholder {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 420.5px) and (max-width: 776px) {
+  .displaying-div {
+    border-top: 3px solid rgb(216, 216, 216);
+    width: 100%;
+    margin-top: 5vh;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .product-tile {
+    width: 44vw;
+    height: 360px;
+    box-shadow: 2px 2px 2px rgba(24, 8, 196, 0.5);
+    margin: 2vw;
+    display: grid;
+    grid-template-rows: 60% 1fr 1fr;
+    row-gap: 5px;
+    border-radius: 10px;
+  }
+  .icon-and-title h1 {
+    width: 100%;
+    font-weight: 700;
+    font-size: 40px;
+    color: hsl(245, 92%, 40%);
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 18vh;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(24, 8, 196, 0.5);
+  }
+  .icon-and-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 10%;
+  }
+
+  .icon-and-title h1 {
+    width: 100%;
+    font-weight: 700;
+    font-size: 36px;
+    color: hsl(245, 92%, 40%);
+  }
+
+  .icon-and-title img {
+    height: 80%;
+  }
+
+  .welcome-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 10px;
+    color: rgb(85, 85, 85);
+  }
+
+  .body-contents {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-buttons-container {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-bar-and-button {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .search {
+    height: 84%;
+  }
+
+  .search-bar-and-button input {
+    width: 100%;
+    height: 84%;
+    border: 2px solid rgb(216, 216, 216);
+    border-radius: 10px;
+    padding-left: 1.5%;
+  }
+
+  .search-bar-and-button button {
+    position: absolute;
+    right: 2px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .create-buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .custom-div {
+    background-color: rgb(216, 216, 216);
+    width: 98%;
+    height: auto;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+  }
+
+  .custom-div-contents {
+    display: none;
+    width: 90%;
+    height: 100%;
+  }
+
+  .custom-div1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: -37vw;
+    top: 30vh;
+    background-color: rgb(216, 216, 216);
+    width: 80%;
+    height: auto;
+    margin: 50% 50%;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+  }
+
+  .popup {
+    width: 95%;
+    height: 100%;
+  }
+
+  form {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 5px;
+  }
+
+  .form-input-label-containel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+  }
+
+  .form-input-label-containel1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 5px;
+  }
+
+  .form-input-label-containel1 button {
+    padding: 2% 5%;
+  }
+
+  form label {
+    padding: 0;
+    margin: 0;
+  }
+
+  form input {
+    width: 90%;
+    height: 60%;
+    border-radius: 10px;
+    border: 2px solid rgb(216, 216, 216);
+    padding-left: 1.5%;
+  }
+
+  form input::placeholder {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 776.5px) and (max-width: 1049px) {
+  .custom-div1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: -37vw;
+    top: 30vh;
+    background-color: rgb(216, 216, 216);
+    width: 80%;
+    height: auto;
+    margin: 50% 50%;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+  }
+
+  .popup {
+    width: 95%;
+    height: 100%;
+  }
+
+  form {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 5px;
+  }
+
+  .form-input-label-containel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+  }
+
+  .form-input-label-containel1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 5px;
+  }
+
+  .form-input-label-containel1 button {
+    padding: 2% 5%;
+  }
+
+  form label {
+    padding: 0;
+    margin: 0;
+  }
+
+  form input {
+    width: 90%;
+    height: 60%;
+    border-radius: 10px;
+    border: 2px solid rgb(216, 216, 216);
+    padding-left: 1.5%;
+  }
+
+  form input::placeholder {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1050px) and (max-width: 1600px) {
+  .displaying-div {
+    border-top: 3px solid rgb(216, 216, 216);
+    width: 100%;
+    margin-top: 5vh;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-tile {
+    width: 22vw;
+    height: 360px;
+    box-shadow: 2px 2px 2px rgba(24, 8, 196, 0.5);
+    margin: 1vw;
+    display: grid;
+    grid-template-rows: 60% 1fr 1fr;
+    row-gap: 5px;
+    border-radius: 10px;
+  }
+
+  .custom-div {
+    background-color: rgb(216, 216, 216);
+    width: 98%;
+    height: auto;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+  }
+
+  .custom-div-contents {
+    display: none;
+    width: 90%;
+    height: 100%;
+  }
+
+  .custom-div1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: -24vw;
+    top: 30vh;
+    background-color: rgb(216, 216, 216);
+    width: 50%;
+    height: auto;
+    margin: 50% 50%;
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 3px rgba(24, 8, 196, 0.5);
+  }
+
+  .popup {
+    width: 95%;
+    height: 100%;
+  }
+
+  form {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 5px;
+  }
+
+  .form-input-label-containel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+  }
+
+  .form-input-label-containel1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 5px;
+  }
+
+  .form-input-label-containel1 button {
+    margin-top: 1%;
+    padding: 2% 5%;
+    height: 80%;
+  }
+
+  form label {
+    padding: 0;
+    margin: 0;
+  }
+
+  form input {
+    width: 90%;
+    height: 60%;
+    border-radius: 10px;
+    border: 2px solid rgb(216, 216, 216);
+    padding-left: 1.5%;
+  }
+
+  form input::placeholder {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+  }
+}
