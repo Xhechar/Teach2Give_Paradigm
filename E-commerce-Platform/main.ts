@@ -32,6 +32,8 @@ class UserInteface {
     "#update-product"
   ) as HTMLButtonElement;
 
+  homeDisplay = document.querySelector('.displaying-div-home-page') as HTMLDivElement;
+
 
   idValue!: string;
   newName = document.querySelector('#new-name') as HTMLInputElement;
@@ -43,6 +45,7 @@ class UserInteface {
 
   constructor() {
     this.displayProducts();
+    this.displayProductsOnHomePage();
 
     this.saveBtn.addEventListener("click", (event) => {
       let nameInput = this.commodityName.value;
@@ -314,7 +317,85 @@ class UserInteface {
         });
       });
     } catch (error) {
-      console.error("errorr: ", error);
+      // console.error("errorr: ", error);
+    }
+  }
+
+  async displayProductsOnHomePage() {
+    try {
+      let myArray = await ProductManager.getProducts();
+
+      // this.removeExistingItems();
+
+      myArray.forEach((product) => {
+        let myId = product.id;
+
+        let productTile = document.createElement("div");
+        productTile.className = "product-tile";
+        productTile.style.height = '380px';
+
+        let imageHolder = document.createElement("div");
+        imageHolder.className = "image-holder";
+
+        let imageContent = document.createElement("img");
+        imageContent.setAttribute("src", product.image);
+
+        let bodyHolder = document.createElement("div");
+        bodyHolder.className = "body-holder";
+
+        let commodityNme = document.createElement("h2");
+        commodityNme.textContent = product.name;
+        commodityNme.style.marginBottom = "5px";
+
+        let commodityDscrp = document.createElement("p");
+        commodityDscrp.textContent = product.description;
+
+        let commodityPrc = document.createElement("p");
+        commodityPrc.textContent = product.price;
+
+        let ratingsContainer = document.createElement('div');
+        ratingsContainer.className = 'stars-container'
+
+        for (let starCount = 0; starCount < 5; starCount++) {
+          let star = document.createElement('img');
+          star.setAttribute('src', 'icons/star_rate_40dp.svg');
+          star.style.width = '25px'
+          ratingsContainer.appendChild(star);
+        }
+
+        let buttonHolder = document.createElement("div");
+        buttonHolder.className = "button-holder";
+        buttonHolder.style.width = '100%';
+        buttonHolder.style.height = '100%';
+
+        let viewItemBtn = document.createElement("button");
+        viewItemBtn.innerHTML = `<img src="icons/visibility_24dp.svg">`
+
+        let addButton = document.createElement("button");
+        addButton.className = "delete";
+        addButton.innerHTML = `<img src="icons/add_shopping_cart_24dp.svg">`
+
+        imageHolder.appendChild(imageContent);
+
+        bodyHolder.appendChild(commodityNme);
+        bodyHolder.appendChild(commodityDscrp);
+        bodyHolder.appendChild(commodityPrc);
+
+        buttonHolder.appendChild(viewItemBtn);
+        buttonHolder.appendChild(addButton);
+
+        productTile.appendChild(imageHolder);
+        productTile.appendChild(bodyHolder);
+        productTile.appendChild(ratingsContainer);
+        productTile.appendChild(buttonHolder);
+
+        this.homeDisplay.appendChild(productTile);
+
+        addButton.addEventListener('click', () => {
+        })
+      });
+    } catch (error) {
+      // console.error("errorr: ", error);
     }
   }
 

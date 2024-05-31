@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      sizes="32X32"
+      type="image/png"
+      rel="icon"
+      href="icons/ecommerce-iconn.png"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+
+    <title>e - Commerce Trading Platform (Home) | Felix Okoth</title>
+  </head>
+  <body>
+    <main>
+      <div class="contents-container">
+        <div class="heading">
+          <div class="title-container">
+            <div class="icon">
+              <img src="icons/e-cart.png" alt="image of company-logo" />
+            </div>
+            <div class="title">
+              <h1>e - Commerce Trading Platfom</h1>
+            </div>
+          </div>
+          <div class="search-container">
+            <div class="humburger-menu-holder">
+              <button class="humburger-menu" style="background-color: rgba(0, 0, 0, 0);">
+                <img src="icons/menu_40dp (1).svg" alt="" />
+              </button>
+            </div>
+            <div class="search-bar-and-button">
+              <input
+                type="text"
+                placeholder="Search for Item..."
+                class="item-search"
+              />
+              <button>
+                <img src="icons/search_20dp.svg" alt="" />
+              </button>
+            </div>
+            <div class="buttons-container-profile-picture">
+              <button class="sign-in">Sign In</button>
+              <button class="sign-up">sign Up</button>
+            </div>
+            <div class="cart-container">
+              <button style="background-color: rgba(0, 0, 0, 0);" class="cart-items">
+                <img src="icons/shopping_cart_24dp.svg" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="main-body-section">
+          <div class="sign-in-popup">
+            <form>
+              <div class="form-signIn-label-containel">
+                <label>Email: *</label>
+                <input type="text" class="price-of-commodity" />
+              </div>
+
+              <div class="form-signIn-label-containel">
+                <label>Password: *</label>
+                <input type="text" class="price-of-commodity" />
+              </div>
+
+              <div class="form-signIn-label-containel1">
+                <button class="cancel-signIn">Cancel Form</button>
+                <button class="logIn">Log In</button>
+                <button class="create-account">Sign Up Instead</button>
+              </div>
+            </form>
+          </div>
+          <div class="sign-up-popup">
+            <form>
+              <div class="form-signIn-label-containel">
+                <label>First Name: *</label>
+                <input type="text" class="name-of-commodity" />
+              </div>
+              <div class="form-signIn-label-containel">
+                <label>Last Name: *</label>
+                <input
+                  style="border: none"
+                  type="text"
+                  class="description-of-commodity"
+                />
+              </div>
+
+              <div class="form-signIn-label-containel">
+                <label>Email: *</label>
+                <input type="text" class="price-of-commodity" />
+              </div>
+
+              <div class="form-signIn-label-containel">
+                <label>Password: *</label>
+                <input type="text" class="price-of-commodity" />
+              </div>
+
+              <div class="form-signIn-label-containel">
+                <label>Confirm Password: * </label>
+                <input type="text" class="price-of-commodity" />
+              </div>
+
+              <div class="form-signIn-label-containel">
+                <label>Upload Profile Photo: *</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  class="image-of-commodity"
+                />
+              </div>
+              <div class="form-signIn-label-containel1">
+                <button class="cancel-signIn">Cancel Form</button>
+                <button class="logIn">Log in Instead</button>
+                <button class="create-account">Sign Up</button>
+              </div>
+            </form>
+          </div>
+          <div class="displaying-div-home-page"></div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="equivalents/main.js"></script>
+    <script src="equivalents/connector.js"></script>
+  </body>
+</html>

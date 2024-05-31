@@ -217,7 +217,7 @@ form input::placeholder {
   text-align: center;
 }
 
-.displaying-div {
+.displaying-div, .displaying-div-home-page {
   border-top: 3px solid rgb(216, 216, 216);
   width: 100%;
   margin-top: 5vh;
@@ -235,9 +235,15 @@ form input::placeholder {
   box-shadow: 2px 2px 2px rgba(24, 8, 196, 0.5);
   margin: 1vw;
   display: grid;
-  grid-template-rows: 60% 1fr 1fr;
+  grid-template-rows: 60% 1fr 1fr 2fr;
   row-gap: 5px;
   border-radius: 10px;
+}
+
+.stars-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .product-tile img {
@@ -256,7 +262,8 @@ form input::placeholder {
 }
 
 .button-holder button {
-  padding: 3% 10%;
+  padding: 2% 10%;
+  height: 70%;
 }
 
 .body-holder {
@@ -478,7 +485,7 @@ form input::placeholder {
 }
 
 @media screen and (min-width: 420.5px) and (max-width: 776px) {
-  .displaying-div {
+  .displaying-div, .displaying-div-home-page {
     border-top: 3px solid rgb(216, 216, 216);
     width: 100%;
     margin-top: 5vh;
@@ -763,7 +770,7 @@ form input::placeholder {
 }
 
 @media screen and (min-width: 1050px) and (max-width: 1600px) {
-  .displaying-div {
+  .displaying-div, .displaying-div-home-page {
     border-top: 3px solid rgb(216, 216, 216);
     width: 100%;
     margin-top: 5vh;
