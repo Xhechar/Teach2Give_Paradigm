@@ -11,15 +11,36 @@
       "id": "1717073020276",
       "name": "Television Set",
       "description": "Hisense Pro 18",
-      "price": "Ksh: 36,000",
+      "price": "Ksh: 38,000",
       "image": "https://th.bing.com/th?id=OIP.nUosOC2WRAskKFNIb2PqNwHaGh&w=266&h=234&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
     },
     {
-      "id": "1717077295743",
+      "id": "1717183222035",
       "image": "https://th.bing.com/th?id=OIP._zXfuEA95QhKw8_3pk3INgHaFG&w=301&h=207&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       "name": "Book",
       "description": "Text Book",
-      "price": "Ksh: 300"
+      "price": "Ksh: 1,250"
+    },
+    {
+      "id": "1717229085168",
+      "image": "https://th.bing.com/th?id=OIP.X44P6F8ojmfOnX23CSGYoAHaHc&w=249&h=250&c=8&rs=1&qlt=30&o=6&pid=3.1&rm=2",
+      "name": "Watch",
+      "description": "Rolex h9 Black",
+      "price": "Ksh: 8,900"
+    },
+    {
+      "id": "1717229933754",
+      "image": "https://th.bing.com/th?id=OIP.rBDFjcxZfu-Q1kGYddUooQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+      "name": "Woofers",
+      "description": "Von Hot-Point 3X > # Systems",
+      "price": "Ksh: 12,000"
+    },
+    {
+      "id": "1717230080600",
+      "name": "Note Pad",
+      "description": "Sumsung Laptop",
+      "price": "Ksh: 89,000",
+      "image": "https://th.bing.com/th?id=OIP.NLJdpjFHs0SHzg--bEcyeQHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
     }
   ]
 }

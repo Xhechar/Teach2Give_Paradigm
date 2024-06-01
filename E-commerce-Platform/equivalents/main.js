@@ -10,6 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const myManager = new ProductManager("http://localhost:3000");
 class UserInteface {
     constructor() {
+        this.cartProducts = [];
+        this.cartNumberCount = 0;
         this.searchBox = document.querySelector(".search-box");
         this.cancelBtn = document.querySelector(".cancel");
         this.saveBtn = document.querySelector(".save");
@@ -26,15 +28,19 @@ class UserInteface {
         this.customDiv1 = document.querySelector(".custom-div1");
         this.cancelForm = document.querySelector("#cancel-form");
         this.updateProduct = document.querySelector("#update-product");
-        this.homeDisplay = document.querySelector('.displaying-div-home-page');
-        this.newName = document.querySelector('#new-name');
-        this.newDescription = document.querySelector('#new-description');
-        this.newPrice = document.querySelector('#new-price');
-        this.newImage = document.querySelector('#new-image');
-        this.cancelerForm = document.querySelector('#new-image');
-        this.updaterProduct = document.querySelector('#new-image');
+        this.homeDisplay = document.querySelector(".displaying-div-home-page");
+        this.newName = document.querySelector("#new-name");
+        this.newDescription = document.querySelector("#new-description");
+        this.newPrice = document.querySelector("#new-price");
+        this.newImage = document.querySelector("#new-image");
+        this.cancelerForm = document.querySelector("#new-image");
+        this.updaterProduct = document.querySelector("#new-image");
+        this.cartContainer = document.querySelector(".cart-container");
+        this.cartPageDiv = document.querySelector(".displaying-div-cart-page");
+        this.cartItems = document.querySelector("#cart-items");
         this.displayProducts();
         this.displayProductsOnHomePage();
+        this.selectCartButton();
         this.saveBtn.addEventListener("click", (event) => {
             let nameInput = this.commodityName.value;
             let descriptionInput = this.commodityDescription.value;
@@ -230,15 +236,15 @@ class UserInteface {
               </div>
             </form>
           </div>`;
-                        this.newName = document.querySelector('#new-name');
-                        this.newDescription = document.querySelector('#new-description');
-                        this.newPrice = document.querySelector('#new-price');
-                        this.newImage = document.querySelector('#new-image');
-                        this.cancelerForm = document.querySelector('#cancel-form');
-                        this.updaterProduct = document.querySelector('#update-product');
-                        this.cancelerForm.addEventListener('click', (event) => {
+                        this.newName = document.querySelector("#new-name");
+                        this.newDescription = document.querySelector("#new-description");
+                        this.newPrice = document.querySelector("#new-price");
+                        this.newImage = document.querySelector("#new-image");
+                        this.cancelerForm = document.querySelector("#cancel-form");
+                        this.updaterProduct = document.querySelector("#update-product");
+                        this.cancelerForm.addEventListener("click", (event) => {
                             // event.preventDefault();
-                            this.customDiv1.style.display = 'none';
+                            this.customDiv1.style.display = "none";
                         });
                         this.updaterFunction();
                     });
@@ -258,7 +264,7 @@ class UserInteface {
                     let myId = product.id;
                     let productTile = document.createElement("div");
                     productTile.className = "product-tile";
-                    productTile.style.height = '380px';
+                    productTile.style.height = "380px";
                     let imageHolder = document.createElement("div");
                     imageHolder.className = "image-holder";
                     let imageContent = document.createElement("img");
@@ -272,18 +278,18 @@ class UserInteface {
                     commodityDscrp.textContent = product.description;
                     let commodityPrc = document.createElement("p");
                     commodityPrc.textContent = product.price;
-                    let ratingsContainer = document.createElement('div');
-                    ratingsContainer.className = 'stars-container';
+                    let ratingsContainer = document.createElement("div");
+                    ratingsContainer.className = "stars-container";
                     for (let starCount = 0; starCount < 5; starCount++) {
-                        let star = document.createElement('img');
-                        star.setAttribute('src', 'icons/star_rate_40dp.svg');
-                        star.style.width = '25px';
+                        let star = document.createElement("img");
+                        star.setAttribute("src", "icons/star_rate_40dp.svg");
+                        star.style.width = "25px";
                         ratingsContainer.appendChild(star);
                     }
                     let buttonHolder = document.createElement("div");
                     buttonHolder.className = "button-holder";
-                    buttonHolder.style.width = '100%';
-                    buttonHolder.style.height = '100%';
+                    buttonHolder.style.width = "100%";
+                    buttonHolder.style.height = "100%";
                     let viewItemBtn = document.createElement("button");
                     viewItemBtn.innerHTML = `<img src="icons/visibility_24dp.svg">`;
                     let addButton = document.createElement("button");
@@ -300,8 +306,88 @@ class UserInteface {
                     productTile.appendChild(ratingsContainer);
                     productTile.appendChild(buttonHolder);
                     this.homeDisplay.appendChild(productTile);
-                    addButton.addEventListener('click', () => {
+                    addButton.addEventListener("click", () => {
+                        console.log("i am clicked");
+                        let decider = true;
+                        if (decider) {
+                            console.log("inside the decider");
+                            let cartCount = document.createElement("p");
+                            cartCount.className = "dynamic";
+                            this.cartNumberCount += 1;
+                            cartCount.textContent = `${this.cartNumberCount}`;
+                            this.cartContainer.appendChild(cartCount);
+                            this.cartProducts.push(product);
+                            console.log(this.cartProducts);
+                            decider = false;
+                        }
+                        else {
+                            console.log("Already Added Item To Cart.");
+                        }
                     });
+                });
+            }
+            catch (error) {
+                // console.error("errorr: ", error);
+            }
+        });
+    }
+    selectCartButton() {
+        this.cartItems.addEventListener('click', () => {
+            console.log('cart clicked');
+            // window.location.href = 'cart.html';
+            console.log(this.cartProducts);
+            this.displayProductsOnCartPage();
+        });
+    }
+    displayProductsOnCartPage() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                this.cartProducts.forEach((product) => {
+                    let myId = product.id;
+                    let productTile = document.createElement("div");
+                    productTile.className = "product-tile";
+                    productTile.style.height = "380px";
+                    let imageHolder = document.createElement("div");
+                    imageHolder.className = "image-holder";
+                    let imageContent = document.createElement("img");
+                    imageContent.setAttribute("src", product.image);
+                    let bodyHolder = document.createElement("div");
+                    bodyHolder.className = "body-holder";
+                    let commodityNme = document.createElement("h2");
+                    commodityNme.textContent = product.name;
+                    commodityNme.style.marginBottom = "5px";
+                    let commodityDscrp = document.createElement("p");
+                    commodityDscrp.textContent = product.description;
+                    let commodityPrc = document.createElement("p");
+                    commodityPrc.textContent = product.price;
+                    let ratingsContainer = document.createElement("div");
+                    ratingsContainer.className = "stars-container";
+                    for (let starCount = 0; starCount < 5; starCount++) {
+                        let star = document.createElement("img");
+                        star.setAttribute("src", "icons/star_rate_40dp.svg");
+                        star.style.width = "25px";
+                        ratingsContainer.appendChild(star);
+                    }
+                    let buttonHolder = document.createElement("div");
+                    buttonHolder.className = "button-holder";
+                    buttonHolder.style.width = "100%";
+                    buttonHolder.style.height = "100%";
+                    let viewItemBtn = document.createElement("button");
+                    viewItemBtn.innerHTML = `<img src="icons/visibility_24dp.svg">`;
+                    let addButton = document.createElement("button");
+                    addButton.className = "delete";
+                    addButton.innerHTML = `<img src="icons/add_shopping_cart_24dp.svg">`;
+                    imageHolder.appendChild(imageContent);
+                    bodyHolder.appendChild(commodityNme);
+                    bodyHolder.appendChild(commodityDscrp);
+                    bodyHolder.appendChild(commodityPrc);
+                    buttonHolder.appendChild(viewItemBtn);
+                    buttonHolder.appendChild(addButton);
+                    productTile.appendChild(imageHolder);
+                    productTile.appendChild(bodyHolder);
+                    productTile.appendChild(ratingsContainer);
+                    productTile.appendChild(buttonHolder);
+                    this.cartPageDiv.appendChild(productTile);
                 });
             }
             catch (error) {
@@ -312,28 +398,28 @@ class UserInteface {
     updaterFunction() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                this.updaterProduct.addEventListener('click', (event) => __awaiter(this, void 0, void 0, function* () {
+                this.updaterProduct.addEventListener("click", (event) => __awaiter(this, void 0, void 0, function* () {
                     let nameValue = this.newName.value;
                     let descriptionValue = this.newDescription.value;
                     let priceValue = this.newPrice.value;
                     let imageValue = this.newImage.value;
                     event.preventDefault();
-                    console.log('Update Clicked');
+                    console.log("Update Clicked");
                     let nameCheck = nameValue;
                     let descriptionCheck = descriptionValue;
                     let priceCheck = priceValue;
                     let imageCheck = imageValue;
                     console.log(nameCheck + descriptionCheck + priceCheck + imageCheck);
                     let myIdentifier = this.idValue;
-                    let isCorrect = nameCheck !== '' && descriptionCheck !== '' && priceCheck !== '';
+                    let isCorrect = nameCheck !== "" && descriptionCheck !== "" && priceCheck !== "";
                     if (isCorrect) {
-                        console.log('inside if statement');
+                        console.log("inside if statement");
                         let newObject = {
                             id: myIdentifier,
                             name: nameCheck,
                             description: descriptionCheck,
                             price: priceCheck,
-                            image: imageCheck
+                            image: imageCheck,
                         };
                         console.log(newObject);
                         yield ProductManager.updateProduct(myIdentifier, newObject);
@@ -341,7 +427,7 @@ class UserInteface {
                         this.displayProducts();
                     }
                     else {
-                        console.log('fields are empty');
+                        console.log("fields are empty");
                         // newName.setAttribute(
                         //   "placeholder",
                         //   "!! enter appropriate value"
@@ -358,7 +444,7 @@ class UserInteface {
                 }));
             }
             catch (error) {
-                console.error('error in updating: ', error);
+                console.error("error in updating: ", error);
             }
         });
     }

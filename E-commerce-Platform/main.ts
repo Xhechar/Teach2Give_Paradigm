@@ -4,10 +4,12 @@ const myManager = new ProductManager("http://localhost:3000");
 
 class UserInteface {
   product?: Partial<Product>;
+  cartProducts: Product[] = [];
+  cartNumberCount: number = 0;
 
   searchBox = document.querySelector(".search-box") as HTMLInputElement;
   cancelBtn = document.querySelector(".cancel") as HTMLButtonElement;
-  saveBtn = document.querySelector(".save") as HTMLInputElement;
+  saveBtn = document.querySelector(".save") as HTMLButtonElement;
   viewBtn = document.querySelector(".view") as HTMLButtonElement;
   createBtn = document.querySelector(".create") as HTMLButtonElement;
   // deleteBtn = document.querySelector('.delete') as HTMLButtonElement;
@@ -32,20 +34,32 @@ class UserInteface {
     "#update-product"
   ) as HTMLButtonElement;
 
-  homeDisplay = document.querySelector('.displaying-div-home-page') as HTMLDivElement;
-
+  homeDisplay = document.querySelector(
+    ".displaying-div-home-page"
+  ) as HTMLDivElement;
 
   idValue!: string;
-  newName = document.querySelector('#new-name') as HTMLInputElement;
-  newDescription = document.querySelector('#new-description') as HTMLInputElement;
-  newPrice = document.querySelector('#new-price') as HTMLInputElement;
-  newImage = document.querySelector('#new-image') as HTMLInputElement;
-  cancelerForm = document.querySelector('#new-image') as HTMLButtonElement;
-  updaterProduct = document.querySelector('#new-image') as HTMLButtonElement;
+  newName = document.querySelector("#new-name") as HTMLInputElement;
+  newDescription = document.querySelector(
+    "#new-description"
+  ) as HTMLInputElement;
+  newPrice = document.querySelector("#new-price") as HTMLInputElement;
+  newImage = document.querySelector("#new-image") as HTMLInputElement;
+  cancelerForm = document.querySelector("#new-image") as HTMLButtonElement;
+  updaterProduct = document.querySelector("#new-image") as HTMLButtonElement;
+
+  cartContainer = document.querySelector(".cart-container") as HTMLDivElement;
+
+  cartPageDiv = document.querySelector(
+    ".displaying-div-cart-page"
+  ) as HTMLDivElement;
+  cartItems = document.querySelector("#cart-items") as HTMLButtonElement;
 
   constructor() {
     this.displayProducts();
     this.displayProductsOnHomePage();
+    this.selectCartButton();
+
 
     this.saveBtn.addEventListener("click", (event) => {
       let nameInput = this.commodityName.value;
@@ -300,18 +314,29 @@ class UserInteface {
             </form>
           </div>`;
 
-          this.newName = document.querySelector('#new-name') as HTMLInputElement;
-          this.newDescription = document.querySelector('#new-description') as HTMLInputElement;
-          this.newPrice = document.querySelector('#new-price') as HTMLInputElement;
-          this.newImage = document.querySelector('#new-image') as HTMLInputElement;
-          this.cancelerForm = document.querySelector('#cancel-form') as HTMLButtonElement;
-          this.updaterProduct = document.querySelector('#update-product') as HTMLButtonElement;
+          this.newName = document.querySelector(
+            "#new-name"
+          ) as HTMLInputElement;
+          this.newDescription = document.querySelector(
+            "#new-description"
+          ) as HTMLInputElement;
+          this.newPrice = document.querySelector(
+            "#new-price"
+          ) as HTMLInputElement;
+          this.newImage = document.querySelector(
+            "#new-image"
+          ) as HTMLInputElement;
+          this.cancelerForm = document.querySelector(
+            "#cancel-form"
+          ) as HTMLButtonElement;
+          this.updaterProduct = document.querySelector(
+            "#update-product"
+          ) as HTMLButtonElement;
 
-          
-      this.cancelerForm.addEventListener('click', (event) => {
-        // event.preventDefault();
-        this.customDiv1.style.display = 'none';
-      })
+          this.cancelerForm.addEventListener("click", (event) => {
+            // event.preventDefault();
+            this.customDiv1.style.display = "none";
+          });
 
           this.updaterFunction();
         });
@@ -332,7 +357,7 @@ class UserInteface {
 
         let productTile = document.createElement("div");
         productTile.className = "product-tile";
-        productTile.style.height = '380px';
+        productTile.style.height = "380px";
 
         let imageHolder = document.createElement("div");
         imageHolder.className = "image-holder";
@@ -353,27 +378,27 @@ class UserInteface {
         let commodityPrc = document.createElement("p");
         commodityPrc.textContent = product.price;
 
-        let ratingsContainer = document.createElement('div');
-        ratingsContainer.className = 'stars-container'
+        let ratingsContainer = document.createElement("div");
+        ratingsContainer.className = "stars-container";
 
         for (let starCount = 0; starCount < 5; starCount++) {
-          let star = document.createElement('img');
-          star.setAttribute('src', 'icons/star_rate_40dp.svg');
-          star.style.width = '25px'
+          let star = document.createElement("img");
+          star.setAttribute("src", "icons/star_rate_40dp.svg");
+          star.style.width = "25px";
           ratingsContainer.appendChild(star);
         }
 
         let buttonHolder = document.createElement("div");
         buttonHolder.className = "button-holder";
-        buttonHolder.style.width = '100%';
-        buttonHolder.style.height = '100%';
+        buttonHolder.style.width = "100%";
+        buttonHolder.style.height = "100%";
 
         let viewItemBtn = document.createElement("button");
-        viewItemBtn.innerHTML = `<img src="icons/visibility_24dp.svg">`
+        viewItemBtn.innerHTML = `<img src="icons/visibility_24dp.svg">`;
 
         let addButton = document.createElement("button");
         addButton.className = "delete";
-        addButton.innerHTML = `<img src="icons/add_shopping_cart_24dp.svg">`
+        addButton.innerHTML = `<img src="icons/add_shopping_cart_24dp.svg">`;
 
         imageHolder.appendChild(imageContent);
 
@@ -391,8 +416,108 @@ class UserInteface {
 
         this.homeDisplay.appendChild(productTile);
 
-        addButton.addEventListener('click', () => {
-        })
+        addButton.addEventListener("click", () => {
+          console.log("i am clicked");
+          let decider: boolean = true;
+
+          if (decider) {
+            console.log("inside the decider");
+            let cartCount = document.createElement("p");
+            cartCount.className = "dynamic";
+            this.cartNumberCount += 1;
+            cartCount.textContent = `${this.cartNumberCount}`;
+            this.cartContainer.appendChild(cartCount);
+            this.cartProducts.push(product);
+            console.log(this.cartProducts);
+
+            decider = false;
+          } else {
+            console.log("Already Added Item To Cart.");
+          }
+        });
+      });
+    } catch (error) {
+      // console.error("errorr: ", error);
+    }
+  }
+
+  selectCartButton() {
+    
+    this.cartItems.addEventListener('click', () => {
+      console.log('cart clicked');
+      // window.location.href = 'cart.html';
+      console.log(this.cartProducts);
+
+      this.displayProductsOnCartPage();
+    })
+
+  }
+
+  async displayProductsOnCartPage() {
+    try {
+      this.cartProducts.forEach((product) => {
+        let myId = product.id;
+
+        let productTile = document.createElement("div");
+        productTile.className = "product-tile";
+        productTile.style.height = "380px";
+
+        let imageHolder = document.createElement("div");
+        imageHolder.className = "image-holder";
+
+        let imageContent = document.createElement("img");
+        imageContent.setAttribute("src", product.image);
+
+        let bodyHolder = document.createElement("div");
+        bodyHolder.className = "body-holder";
+
+        let commodityNme = document.createElement("h2");
+        commodityNme.textContent = product.name;
+        commodityNme.style.marginBottom = "5px";
+
+        let commodityDscrp = document.createElement("p");
+        commodityDscrp.textContent = product.description;
+
+        let commodityPrc = document.createElement("p");
+        commodityPrc.textContent = product.price;
+
+        let ratingsContainer = document.createElement("div");
+        ratingsContainer.className = "stars-container";
+
+        for (let starCount = 0; starCount < 5; starCount++) {
+          let star = document.createElement("img");
+          star.setAttribute("src", "icons/star_rate_40dp.svg");
+          star.style.width = "25px";
+          ratingsContainer.appendChild(star);
+        }
+
+        let buttonHolder = document.createElement("div");
+        buttonHolder.className = "button-holder";
+        buttonHolder.style.width = "100%";
+        buttonHolder.style.height = "100%";
+
+        let viewItemBtn = document.createElement("button");
+        viewItemBtn.innerHTML = `<img src="icons/visibility_24dp.svg">`;
+
+        let addButton = document.createElement("button");
+        addButton.className = "delete";
+        addButton.innerHTML = `<img src="icons/add_shopping_cart_24dp.svg">`;
+
+        imageHolder.appendChild(imageContent);
+
+        bodyHolder.appendChild(commodityNme);
+        bodyHolder.appendChild(commodityDscrp);
+        bodyHolder.appendChild(commodityPrc);
+
+        buttonHolder.appendChild(viewItemBtn);
+        buttonHolder.appendChild(addButton);
+
+        productTile.appendChild(imageHolder);
+        productTile.appendChild(bodyHolder);
+        productTile.appendChild(ratingsContainer);
+        productTile.appendChild(buttonHolder);
+
+        this.cartPageDiv.appendChild(productTile);
       });
     } catch (error) {
       // console.error("errorr: ", error);
@@ -401,49 +526,45 @@ class UserInteface {
 
   async updaterFunction() {
     try {
-
-      this.updaterProduct.addEventListener('click', async (event) => {
+      this.updaterProduct.addEventListener("click", async (event) => {
         let nameValue = this.newName.value;
         let descriptionValue = this.newDescription.value;
         let priceValue = this.newPrice.value;
         let imageValue = this.newImage.value;
-        
+
         event.preventDefault();
-  
-        console.log('Update Clicked');
-  
+
+        console.log("Update Clicked");
+
         let nameCheck = nameValue;
         let descriptionCheck = descriptionValue;
         let priceCheck = priceValue;
         let imageCheck = imageValue;
-  
+
         console.log(nameCheck + descriptionCheck + priceCheck + imageCheck);
-  
+
         let myIdentifier = this.idValue;
-        let isCorrect = nameCheck !== '' && descriptionCheck !== '' && priceCheck !== '';
-  
+        let isCorrect =
+          nameCheck !== "" && descriptionCheck !== "" && priceCheck !== "";
+
         if (isCorrect) {
-          console.log('inside if statement');
-          
-  
+          console.log("inside if statement");
+
           let newObject: Partial<Product> = {
             id: myIdentifier,
             name: nameCheck,
             description: descriptionCheck,
             price: priceCheck,
-            image: imageCheck
-          }
+            image: imageCheck,
+          };
           console.log(newObject);
-          
-  
+
           await ProductManager.updateProduct(myIdentifier, newObject);
           this.removeExistingItems();
           this.displayProducts();
-        }
-        else {
+        } else {
+          console.log("fields are empty");
 
-          console.log('fields are empty');
-          
           // newName.setAttribute(
           //   "placeholder",
           //   "!! enter appropriate value"
@@ -457,11 +578,9 @@ class UserInteface {
           //   "!! enter appropriate value"
           // );
         }
-  
-      })
-      
+      });
     } catch (error) {
-      console.error('error in updating: ', error)
+      console.error("error in updating: ", error);
     }
   }
 }
