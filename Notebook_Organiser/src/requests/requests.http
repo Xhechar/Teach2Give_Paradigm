@@ -1,0 +1,9 @@
+### Create new Note Book
+POST http://localhost:5303/notebooks/new-notebook
+Content-Content-Type: application/json
+
+{
+  "notebook_title": "The Couple Next Door",
+  "notebook_content": "A story of two couples living in an estate full of chaos and miss-trust",
+  "notebook_date_created": "2022-05-16"
+}
