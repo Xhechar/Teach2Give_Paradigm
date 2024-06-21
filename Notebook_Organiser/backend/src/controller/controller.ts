@@ -6,16 +6,15 @@ let notebookClass = new NoteBookClass;
 export const saveNoteBook = async (req: Request, res: Response) => {
   
   try {
-    let { notebook_id, notebook_title, notebook_content, notebook_date_created } = req.body;
+    let { notebook_title, notebook_content, notebook_date_created } = req.body;
 
-    let saved_notebook = {
-      notebook_id,
-      notebook_title,
-      notebook_content,
-      notebook_date_created
-    }
+    // let saved_notebook = {
+    //   notebook_title,
+    //   notebook_content,
+    //   notebook_date_created
+    // }    
 
-    let response = await notebookClass.createNoteBook(saved_notebook);
+    let response = await notebookClass.createNoteBook(req.body);
 
     return res.json(response)
   } catch (error) {
@@ -47,14 +46,10 @@ export let updateExistingNotebook = async (req: Request, res: Response) => {
 
     let { notebook_title, notebook_content, notebook_date_created } = req.body;
 
-    let notebook_object = {
-      notebook_id,
-      notebook_title,
-      notebook_content,
-      notebook_date_created
-    }
+    console.log(req.body);
+    
 
-    let response = await notebookClass.updateNotebook(notebook_id, notebook_object);
+    let response = await notebookClass.updateNotebook(notebook_id, req.body);
 
     return res.json(response)
   } catch (error) {

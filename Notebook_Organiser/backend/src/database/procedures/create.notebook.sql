@@ -9,3 +9,5 @@ BEGIN
     INSERT INTO notebook_table (notebook_id, notebook_title, notebook_content, notebook_date_created)
     VALUES(@notebook_id, @notebook_title, @notebook_content, @notebook_date_created)
 END
+
+DROP PROCEDURE create_notebook;

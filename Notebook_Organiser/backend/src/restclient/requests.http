@@ -1,0 +1,32 @@
+### Create new Note Book
+POST http://localhost:5303/notebooks/new-notebook
+Content-Type: application/json
+
+{
+  "notebook_title": "The Couple Next Door",
+  "notebook_content": "A story of two couples living in an estate full of chaos and miss-trust",
+  "notebook_date_created": "2022-05-16"
+}
+
+### Modify existing Notebook
+POST http://localhost:5303/notebooks/update-notebook/01d6ea76-e2cb-4c26-9eff-5ff541cd7f0a
+Content-Type: application/json
+
+{
+  "notebook_title": "Repetition Of Things",
+  "notebook_content": "Full Repetition",
+  "notebook_date_created": "2022-05-16"
+}
+
+
+### Fetch all notebooks
+GET http://localhost:5303/notebooks/all-notebooks
+Content-Type: application/json
+
+### Fetch one notebook
+GET http://localhost:5303/notebooks/get-one-notebook/2699dbdf-8f0f-417b-ac87-eaf653aa3d0f
+Content-Type: application/json
+
+### Delete one notebook
+DELETE http://localhost:5303/notebooks/delete-notebook/2699dbdf-8f0f-417b-ac87-eaf653aa3d0f
+Content-Type: application/json

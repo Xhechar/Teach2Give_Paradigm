@@ -4,8 +4,7 @@
       "mssqlOptions": {
         "appName": "SQLTools",
         "useUTC": true,
-        "encrypt": true,
-        "instanceName": "XHR"
+        "encrypt": true
       },
       "previewLimit": 50,
       "server": "localhost",
