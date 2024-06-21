@@ -1,0 +1,8 @@
+![on clicking yes button the item is deleted and nolonger displayed](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/1b4af773-efb5-409d-9eb9-f7b3bb300419)
+![Just created notebook is fetched and displayed on UI](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/c0f23e9c-a50f-426c-a1f6-b2c1acf838e2)
+![creating new notebook](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/5c8eea9a-07a5-4a13-985b-c7312096bef8)
+![changed values before saving](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/c7436b7b-7c2f-4b59-9043-030d05963e61)
+![all items displayed](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/5f3bc72d-90d1-448f-ac21-54f2dbb51b4e)
+![after clicking update button](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/b6fc8843-a356-48b7-a179-f854315d31d8)
+![after clicking the delete button  shows confirmation](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/11c70b90-b1e0-4a13-8193-569f746084ad)
+![updated notebook saved, fetched and displayed on UI](https://github.com/Xhechar/Teach2Give_Paradigm/assets/115901405/efc7c116-79e0-4eab-9ed9-d2a4f702a8e7)
