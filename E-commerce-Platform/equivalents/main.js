@@ -37,10 +37,50 @@ class UserInteface {
         this.updaterProduct = document.querySelector("#new-image");
         this.cartContainer = document.querySelector(".cart-container");
         this.cartPageDiv = document.querySelector(".displaying-div-cart-page");
-        this.cartItems = document.querySelector("#cart-items");
         this.displayProducts();
         this.displayProductsOnHomePage();
-        this.selectCartButton();
+        // this.selectCartButton();
+    }
+    removeExistingItems() {
+        let remover = document.querySelectorAll(".displaying-div .product-tile");
+        remover.forEach((item) => {
+            item.remove();
+        });
+    }
+    initialiseSearchButton() {
+        this.searchBtn.addEventListener("click", () => {
+            let searchInput = this.searchBox.value;
+            let isSearchValid = searchInput !== "";
+            if (isSearchValid) {
+                this.displayProductByName(searchInput);
+            }
+            else {
+                this.searchBox.setAttribute("placeholder", "!! enter appropriate value");
+                setTimeout(() => {
+                    this.searchBox.setAttribute("placeholder", "");
+                }, 2000);
+            }
+        });
+    }
+    initialiseViewButton() {
+        this.viewBtn.addEventListener("click", () => {
+            this.removeExistingItems();
+            this.displayProducts();
+        });
+    }
+    initialiseCreateButton() {
+        this.createBtn.addEventListener("click", () => {
+            console.log("create");
+            this.customDiv.style.display = "block";
+        });
+    }
+    initialiseCancelButton() {
+        this.cancelBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            this.customDiv.style.display = "none";
+        });
+    }
+    initialiseSaveButton() {
         this.saveBtn.addEventListener("click", (event) => {
             let nameInput = this.commodityName.value;
             let descriptionInput = this.commodityDescription.value;
@@ -72,37 +112,6 @@ class UserInteface {
                     this.commodityImage.setAttribute("placeholder", "");
                 }, 2000);
             }
-        });
-        this.searchBtn.addEventListener("click", () => {
-            let searchInput = this.searchBox.value;
-            let isSearchValid = searchInput !== "";
-            if (isSearchValid) {
-                this.displayProductByName(searchInput);
-            }
-            else {
-                this.searchBox.setAttribute("placeholder", "!! enter appropriate value");
-                setTimeout(() => {
-                    this.searchBox.setAttribute("placeholder", "");
-                }, 2000);
-            }
-        });
-        this.viewBtn.addEventListener("click", () => {
-            this.removeExistingItems();
-            this.displayProducts();
-        });
-        this.createBtn.addEventListener("click", () => {
-            console.log("create");
-            this.customDiv.style.display = "block";
-        });
-        this.cancelBtn.addEventListener("click", (event) => {
-            event.preventDefault();
-            this.customDiv.style.display = "none";
-        });
-    }
-    removeExistingItems() {
-        let remover = document.querySelectorAll(".displaying-div .product-tile");
-        remover.forEach((item) => {
-            item.remove();
         });
     }
     displayProductByName(name) {
@@ -332,12 +341,18 @@ class UserInteface {
         });
     }
     selectCartButton() {
-        this.cartItems.addEventListener('click', () => {
-            console.log('cart clicked');
-            // window.location.href = 'cart.html';
-            console.log(this.cartProducts);
-            this.displayProductsOnCartPage();
-        });
+        let cartItems = document.querySelector("#cart-items");
+        if (cartItems) {
+            cartItems.addEventListener("click", () => {
+                console.log("cart clicked");
+                window.location.href = "cart.html";
+                console.log(this.cartProducts);
+                this.displayProductsOnCartPage();
+            });
+        }
+        else {
+            console.log("Not Created the Cart DOM");
+        }
     }
     displayProductsOnCartPage() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -449,5 +464,10 @@ class UserInteface {
         });
     }
 }
-const runApp = new UserInteface();
+let initialiser = new UserInteface();
+initialiser.initialiseSaveButton();
+initialiser.initialiseCreateButton();
+initialiser.initialiseCancelButton();
+initialiser.initialiseSearchButton();
+initialiser.initialiseViewButton();
 export {};
